@@ -1,1 +1,2 @@
-# algorithm-notes
+# Algorithm Notes
+This is a repository to implement partial basic algorithms introduced in Introduction to Algorithms using Java or/and Python. It also includes a test kit to help rewrite and test the algorithms when reviewing. 
