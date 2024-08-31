@@ -10,7 +10,7 @@ class SegmentTreeFindMax:
         self.n = len(arr)
         self.tree = [0] * (self.n * 4)
         self.tags = [None] * (self.n * 4)
-        self.INF = -(10**10)
+        self.INF = -(10 ** 10)
         self._build(arr, 0, self.n - 1, 1)
 
     def _build(self, arr: List[int], start: int, end: int, idx: int) -> None:
