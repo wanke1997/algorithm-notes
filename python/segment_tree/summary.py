@@ -1,12 +1,13 @@
 from typing import List
 
 """
-There are five versions of segment tree. 
+There are six versions of segment tree. 
 1> Range sum and add values
 2> Range sum and replace values
-3> Max/Min and add values
-4> Max/Min and replace values
-5> Max/Min and keep previous values
+3> Range sum and keep previous values
+4> Max/Min and add values
+5> Max/Min and replace values
+6> Max/Min and keep previous values
 
 For each operations, please refer to the following comments
 """
@@ -32,12 +33,13 @@ class Summary:
             """
             Note: for push down, the operations of tree and lazy tags will be the same. 
             
-            Five versions for _pushdown operations
+            Six versions for _pushdown operations
             1> range_sum tree and add values, use "+=" for both tree and children's lazy tags
             2> range_sum tree and replace values, update both children's lazy tags and tree using current values
-            3> max/min tree and add values, use "+=" for both tree and children's lazy tags
-            4> max/min tree and replace values, update both children's lazy tags and tree using current values
-            5> max/min tree and keep previous values, update both tree and children's lazy tags using max() or min()
+            3> range_sum tree and keep previous values, update both tree and children's lazy tags using max() or min()
+            4> max/min tree and add values, use "+=" for both tree and children's lazy tags
+            5> max/min tree and replace values, update both children's lazy tags and tree using current values
+            6> max/min tree and keep previous values, update both tree and children's lazy tags using max() or min()
             """
             self.lazy[2 * idx] = self.lazy[idx]
             self.lazy[2 * idx + 1] = self.lazy[idx]
@@ -67,12 +69,13 @@ class Summary:
             """
             Note: for update, the operations of tree and lazy tags will be the same. 
             
-            Five versions for base update operations
+            Six versions for base update operations
             1> range_sum tree and add values, use "+=" for both tree and children's lazy tags
             2> range_sum tree and replace values, update both children's lazy tags and tree using current values
-            3> max/min tree and add values, use "+=" for both tree and children's lazy tags
-            4> max/min tree and replace values, update both children's lazy tags and tree using current values
-            5> max/min tree and keep previous values, update both tree and children's lazy tags using max() or min()
+            3> range_sum tree and keep previous values, update both tree and children's lazy tags using max() or min()
+            4> max/min tree and add values, use "+=" for both tree and children's lazy tags
+            5> max/min tree and replace values, update both children's lazy tags and tree using current values
+            6> max/min tree and keep previous values, update both tree and children's lazy tags using max() or min()
             """
             self.tree[idx] = val * (e - s + 1)
             self.lazy[idx] = val
