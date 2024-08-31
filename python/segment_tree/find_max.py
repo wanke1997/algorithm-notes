@@ -26,17 +26,24 @@ class SegmentTreeFindMax:
 
     def _pushdown(self, idx: int) -> None:
         """
-        Push down operation. When the current node's lazy tag does not equal to zero, update
+        Push down operation. When the current node's lazy tag does not equal to None, update
         its children nodes' maximum values and their lazy tags, then reset the current node's lazy tag.
 
-        Note that this class is to update maximum values with a specific value, we just calculate
-        the maximum values as well, and update the lazy tags with the input value.
+        Note that this class is to update maximum values with a specific value. We need to use the lazy tag
+        to try to get the maximum value for children nodes, and then pass the possible maximum lazy tags to
+        its children node. 
         """
         if self.tags[idx] is not None:
             self.tree[2 * idx] = max(self.tree[2 * idx], self.tags[idx])
             self.tree[2 * idx + 1] = max(self.tree[2 * idx + 1], self.tags[idx])
-            self.tags[2 * idx] = self.tags[idx]
-            self.tags[2 * idx + 1] = self.tags[idx]
+            if self.tags[2 * idx] is None:
+                self.tags[2 * idx] = self.tags[idx]
+            else:
+                self.tags[2 * idx] = max(self.tags[2 * idx], self.tags[idx])
+            if self.tags[2 * idx + 1] is None:
+                self.tags[2 * idx + 1] = self.tags[idx]
+            else:
+                self.tags[2 * idx + 1] = max(self.tags[2 * idx + 1], self.tags[idx])
             self.tags[idx] = None
 
     def _query_helper(self, target_s: int, target_e: int, cur_s: int, cur_e: int, idx: int) -> int:
@@ -58,11 +65,14 @@ class SegmentTreeFindMax:
     def update(self, target_s: int, target_e: int, cur_s: int, cur_e: int, idx: int, val: int) -> None:
         if cur_s >= target_s and cur_e <= target_e:
             """
-            base case: when the current range is a sub range of the target range, just
-            update the max value in the range AND set the lazy tags for its subtree
+            base case: when the current range is a sub range of the target range, just update 
+            the max value in the range AND update its lazy tag with possible maximum value
             """
             self.tree[idx] = max(self.tree[idx], val)
-            self.tags[idx] = val
+            if self.tags[idx] is None:
+                self.tags[idx] = val
+            else:
+                self.tags[idx] = max(self.tags[idx], val)
         elif cur_s > target_e or cur_e < target_s:
             return
         else:
