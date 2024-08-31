@@ -67,7 +67,7 @@ class Summary:
             """
             Note: for update, the operations of tree and lazy tags will be the same. 
             
-            Five versions for _pushdown operations
+            Five versions for base update operations
             1> range_sum tree and add values, use "+=" for both tree and children's lazy tags
             2> range_sum tree and replace values, update both children's lazy tags and tree using current values
             3> max/min tree and add values, use "+=" for both tree and children's lazy tags
@@ -84,7 +84,7 @@ class Summary:
             self._update(t_s, t_e, s, mid, 2 * idx, val)
             self._update(t_s, t_e, mid + 1, e, 2 * idx + 1, val)
             """
-            Two versions for _update operations
+            Two versions for normal update operations
             1> range_sum tree, use "+" to return left and right range's sum
             2> max/min tree, use max() or min() to get the max or min values
             """
@@ -102,9 +102,3 @@ class Summary:
     def sumRange(self, left: int, right: int) -> int:
         res = self._query(left, right, 0, self.n - 1, 1)
         return res
-
-
-# Your NumArray object will be instantiated and called as such:
-# obj = NumArray(nums)
-# obj.update(index,val)
-# param_2 = obj.sumRange(left,right)
