@@ -12,7 +12,7 @@ For each operations, please refer to the following comments
 """
 
 
-class NumArray:
+class Summary:
     def _build(self, nums: List[int], start: int, end: int, idx: int) -> None:
         if start == end:
             self.tree[idx] = nums[start]

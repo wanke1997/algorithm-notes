@@ -1,7 +1,7 @@
 from typing import List, Optional
 
 
-class SegmentTreeFindMax:
+class MaxKeepVals:
     """
     A segment tree that can find maximum value in any intervals from an array with O(logn) time complexity.
     """
@@ -93,7 +93,7 @@ class SegmentTreeFindMax:
 
 if __name__ == "__main__":
     arr = [10, 11, 12, 13, 14]
-    instance = SegmentTreeFindMax(arr)
+    instance = MaxKeepVals(arr)
     # 1. query [2, 4] -> 14
     res = instance.query(2, 4)
     print("result [2, 4]: {}".format(res))

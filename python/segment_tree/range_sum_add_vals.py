@@ -1,7 +1,7 @@
 from typing import List, Optional
 
 
-class SegmentTreeModifyVals:
+class RangeSumAddVals:
     """
     A segment tree that adds/minuses the range with a specific value.
 
@@ -85,7 +85,7 @@ class SegmentTreeModifyVals:
 
 if __name__ == "__main__":
     arr = [10, 11, 12, 13, 14]
-    instance = SegmentTreeModifyVals(arr)
+    instance = RangeSumAddVals(arr)
     # 1. query [2, 4] -> 39
     res = instance.query(2, 4)
     print("result [2, 4]: {}".format(res))

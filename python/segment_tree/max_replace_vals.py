@@ -1,7 +1,7 @@
 from typing import List
 
 
-class SegmentTreeOverwriteValMax:
+class MaxReplaceVals:
     """
     A segment tree that replaces the range with a specific value and returns max interval values.
 
@@ -82,7 +82,7 @@ class SegmentTreeOverwriteValMax:
 
 if __name__ == "__main__":
     arr = [10, 11, 12, 13, 14]
-    instance = SegmentTreeOverwriteValMax(arr)
+    instance = MaxReplaceVals(arr)
     # 1. query [2, 4] -> 14
     res = instance.get_max(2, 4)
     print("result [2, 4]: {}".format(res))

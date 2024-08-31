@@ -1,7 +1,7 @@
 from typing import List
 
 
-class SegmentTreeReplaceVal:
+class RangeSumReplaceVals:
     """
     A segment tree that replaces the range with a specific value.
 
@@ -82,7 +82,7 @@ class SegmentTreeReplaceVal:
 
 if __name__ == "__main__":
     arr = [10, 11, 12, 13, 14]
-    instance = SegmentTreeReplaceVal(arr)
+    instance = RangeSumReplaceVals(arr)
     # 1. query [2, 4] -> 39
     res = instance.sumRange(2, 4)
     print("result [2, 4]: {}".format(res))
