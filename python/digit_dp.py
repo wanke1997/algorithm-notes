@@ -1,3 +1,7 @@
+"""
+描述: 给定一个正整数n, 要求：返回在[1,n]范围内返回位数互不相等的数字数量
+"""
+
 class DigitDP:
     def __init__(self) -> None:
         self.cache = {}
