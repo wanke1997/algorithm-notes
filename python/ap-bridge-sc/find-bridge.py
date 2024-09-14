@@ -1,5 +1,9 @@
 from typing import Dict, Set, List
 
+"""
+This is Tarjan's Algorithm implementation to find all bridges in an undirected graph
+"""
+
 
 class BridgeFinder:
     def __init__(self, graph: Dict[int, Set[int]]) -> None:

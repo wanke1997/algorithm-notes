@@ -1,5 +1,8 @@
 from typing import Dict, Set, List
 
+"""
+This is Tarjan's Algorithm implementation to find all articulation points in an undirected graph
+"""
 
 class APFinder:
     def __init__(self, graph: Dict[int, Set[int]]) -> None:
